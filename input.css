@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS Reset to fix white space issues */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure sections fill properly */
+section {
+  width: 100%;
+}
+
 /* Custom animations */
 @keyframes scroll {
   0% {
@@ -13,6 +31,20 @@
 }
 
 .animate-scroll {
-  animation: scroll 10s linear infinite;
+  animation: scroll 20s linear infinite;
   will-change: transform;
+  display: flex;
+  width: max-content;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation-duration: 12s;
+    animation-timing-function: linear;
+  }
+  
+  .animate-scroll > div {
+    flex-shrink: 0;
+  }
 }
